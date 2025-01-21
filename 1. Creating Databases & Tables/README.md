@@ -48,11 +48,11 @@ USE <database-name>:
 ### 2.2 Data Types
 - We have to define the data type for each column in the table for consistency and manipulation.
 - Cat Table Example:
-  - Name - must be text - VARCHAR(100) <-- 100: max length of string
-  - Breed - must be txt - VARCHAR(100)
-  - Age - must be number - INT
+  - Name - must be text - `VARCHAR(100)` <-- `100`: max length of string
+  - Breed - must be txt - `VARCHAR(100)`
+  - Age - must be number - `INT`
 - In reality, there are A LOT of different MySQL data types
-  - Numeric Types:
+  - *Numeric Types:*
     - **INT:** A whole number (with a max (signed) value of 2147483647)
     - SMALLINT
     - TINYINT
@@ -63,7 +63,7 @@ USE <database-name>:
     - FLOAT
     - DOUBLE
     - BIT
-  - String Types
+  - *String Types:*
     -  CHAR
     -  **VARCHAR:** A variable-length string
     -  BINARY
@@ -77,7 +77,7 @@ USE <database-name>:
     -  MEDIUMTEXT
     -  LONGTEXT
     -  ENUM
-  - Date Types
+  - *Date Types:*
     - DATE
     - DATETIME
     - TIMESTAMP
