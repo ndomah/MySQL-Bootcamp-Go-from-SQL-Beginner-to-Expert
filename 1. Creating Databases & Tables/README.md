@@ -126,3 +126,24 @@ DROP TABLE <table-name>;
 ```mysql
 DROP TABLE cats;
 ```
+### 2.6 Table Basics Activity
+- Create a *pastries* table
+  - It should include 2 columns: name and quantity
+  - Name is 50 characters max
+```mysql
+CREATE TABLE pastries (
+  name VARCHAR(50),
+  quantity INT
+);
+```
+- Inspect table and columns
+```mysql
+SHOW pastries;
+```
+```mysql
+SHOW COLUMNS FROM pastries;
+```
+- Delete table
+```mysql
+DROP TABLE pastries;
+```
