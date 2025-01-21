@@ -195,6 +195,6 @@ VALUES ('Dora', 'Smith', 58);
 SELECT * FROM Employees;
 ```
  
-|`id`|`last_name`|`first_name`|`middle_name`|`age`|`current_status`|
+|id|last_name|first_name|middle_name|age|current_status|
 |:---|:---|:---|:---|:---|:---|
-|`1`|`Smith`|`Dora`|`NULL`|`58`|`employed`|
+|1|Smith|Dora|NULL|58|employed|
