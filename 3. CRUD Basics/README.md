@@ -181,7 +181,7 @@ FROM cats;
 |5|Misty|
 |6|George Michael|
 |7|Jackson|
-## 6. Update
+## 6. `UPDATE`
 - How do we alter existing data?
 - Change tabby cats to shorthair:
 ```mysql
@@ -216,28 +216,141 @@ WHERE name = 'Misty';
 |7|Jackson|Sphynx|7|
 
 - *Rule of Thumb:* Try `SELECT`ing before you `UPDATE`
-## 6. `UPDATE` Exercises
+## 7. `UPDATE` Exercises
 - Change Jackson's name to Jack
 ```mysql
 SELECT *
 FROM cats
 WHERE name='Jackson';
 ```
-
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|7|Jackson|Sphynx|7|
 ```mysql
 UPDATE cats
 SET name = 'Jack'
 WHERE name = 'Jackson';
+
+SELECT *
+FROM cats;
 ```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|Shorthair|4|
+|2|Cindy|Maine Coon|10|
+|3|Dumbledore|Maine Coon|11|
+|4|Egg|Persian|4|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+|7|Jack|Sphynx|7|
 - Change Ringo's breed to British Shorthair
+```mysql
+SELECT *
+FROM cats
+WHERE name='Ringo';
+
+SELECT *
+FROM cats;
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|Shorthair|4|
 ```mysql
 UPDATE cats
 SET breed = 'British Shorthair'
 WHERE name = 'Ringo';
+
+SELECT *
+FROM cats;
 ```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|British Shorthair|4|
+|2|Cindy|Maine Coon|10|
+|3|Dumbledore|Maine Coon|11|
+|4|Egg|Persian|4|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+|7|Jack|Sphynx|7|
 - Update both Maine Coons' ages to be 12
+```mysql
+SELECT *
+FROM cats
+WHERE breed='Maine Coon';
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|2|Cindy|Maine Coon|10|
+|3|Dumbledore|Maine Coon|11|
 ```mysql
 UPDATE cats
 SET age = 12
 WHERE breed = 'Maine Coon';
+
+SELECT *
+FROM cats;
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|British Shorthair|4|
+|2|Cindy|Maine Coon|12|
+|3|Dumbledore|Maine Coon|12|
+|4|Egg|Persian|4|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+|7|Jack|Sphynx|7|
+## 8. `DELETE`
+- Delete all cats with name of 'Egg':
+```mysql
+DELETE FROM cats
+WHERE name='Egg';
+
+SELECT *
+FROM cats;
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|British Shorthair|4|
+|2|Cindy|Maine Coon|12|
+|3|Dumbledore|Maine Coon|12|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+|7|Jack|Sphynx|7|
+- Delete all rows in the cats table:
+```mysql
+DELETE FROM cats;
+```
+## 9. `DELETE` Exercise
+- Delete all 4 year old cats
+```mysql
+DELETE FROM cats
+WHERE age=4;
+
+SELECT *
+FROM cats;
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|2|Cindy|Maine Coon|12|
+|3|Dumbledore|Maine Coon|12|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+|7|Jack|Sphynx|7|
+- Delete cats whose age is the same as their cat_id
+```mysql
+DELETE FROM cats
+WHERE age=cat_id;
+
+SELECT *
+FROM cats;
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|2|Cindy|Maine Coon|12|
+|3|Dumbledore|Maine Coon|12|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+- Delete all cats
+```mysql
+DELETE FROM cats;
 ```
