@@ -18,8 +18,9 @@
   - *In a relational database, at least.*
 - Tables hold the data: "a collection of related data held in a structured format within a database"
 - Example: The Cats Table
-|**Name** |**Breed** |**Age** |
-|---------|----------|--------|
+- 
+| Name | Breed | Age |
+| :--- | :--- | :--- |
 |Blue |Scottish Fold |1 |
 |Rocket |Persian |3 |
 |Monty |Tabby |10 |
