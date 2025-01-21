@@ -3,7 +3,7 @@ This repository contains materials for a [comprehensive MySQL bootcamp](https://
 
 ## Folder Structure
 1. [Creating Databases & Tables](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/1.%20Creating%20Databases%20%26%20Tables)
-2. Inserting Data
+2. [Inserting Data](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/2.%20Inserting%20Data)
 3. CRUD Basics
 4. CRUD Challenge
 5. String Functions
