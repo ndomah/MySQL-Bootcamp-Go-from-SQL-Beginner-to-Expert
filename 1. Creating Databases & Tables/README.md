@@ -1,6 +1,6 @@
 # Creating Databases & Tables
 ## Databases
-- A database server can contain multiiple databases.
+- A database server can contain multiple databases.
 - Each database can contain multiple tables (in relational database).
 ### Showing Databases
 - To list available databases: `SHOW DATABASES;`
@@ -11,3 +11,7 @@
 - To drop a database: `DROP DATABASE <database-name>;`
 - To use a database: `USE <database-name>:`
 ## Tables
+- A database is just a bunch of tables.
+  - *In a relational database, at least.*
+- Tables hold the data: "a collection of related data held in a structured format within a database"
+- 
