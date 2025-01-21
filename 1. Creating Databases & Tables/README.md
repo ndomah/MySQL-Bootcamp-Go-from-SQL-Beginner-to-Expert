@@ -117,3 +117,12 @@ SHOW COLUMNS FROM cats;
 ```mysql
 DESC cats;
 ```
+### 2.6 Dropping Tables
+- To drop a table:
+```mysql
+DROP TABLE <table-name>;
+```
+- To specifically drop the cats table:
+```mysql
+DROP TABLE cats;
+```
