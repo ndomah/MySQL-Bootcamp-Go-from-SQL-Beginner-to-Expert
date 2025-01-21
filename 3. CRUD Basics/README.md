@@ -32,57 +32,212 @@ VALUES ('Ringo', 'Tabby', 4),
 SELECT * FROM cats; 
 ```
 
-|`cat_id`|`name`|`breed`|`age`|
+|cat_id|name|breed|age|
 |---:|:---|:---|---:|
-|`1`|`Ringo`|`Tabby`|`4`|
-|`2`|`Cindy`|`Maine Coon`|`10`|
-|`3`|`Dumbledore`|`Maine Coon`|`11`|
-|`4`|`Egg`|`Persian`|`4`|
-|`5`|`Misty`|`Tabby`|`13`|
-|`6`|`George Michael`|`Ragdoll`|`9`|
-|`7`|`Jackson`|`Sphynx`|`7`|
+|1|Ringo|Tabby|4|
+|2|Cindy|Maine Coon|10|
+|3|Dumbledore|Maine Coon|11|
+|4|Egg|Persian|4|
+|5|Misty|Tabby|13|
+|6|George Michael|Ragdoll|9|
+|7|Jackson|Sphynx|7|
 
 - You can view values for specific columns
 ```mysql
-SELECT name FROM cats;
+SELECT name
+FROM cats;
 ```
 
-|`name`|
+|name|
 |:---|
-|`Ringo`|
-|`Cindy`|
-|`Dumbledore`|
-|`Egg`|
-|`Misty`|
-|`George Michael`|
-|`Jackson`|
+|Ringo|
+|Cindy|
+|Dumbledore|
+|Egg|
+|Misty|
+|George Michael|
+|Jackson|
 
 ```mysql
-SELECT age FROM cats;
+SELECT age
+FROM cats;
 ```
 
-|`age`|
+|age|
 |---:|
-|`4`|
-|`10`|
-|`11`|
-|`4`|
-|`13`|
-|`9`|
-|`7`|
+|4|
+|10|
+|11|
+|4|
+|13|
+|9|
+|7|
 
 - You can view multiple columns at once
 ```mysql
-SELECT name, age FROM cats;
+SELECT name, age
+FROM cats;
 ```
 
-|`name`|`age`|
+|name|age|
 |:---|---:|
-|`Ringo`|`4`|
-|`Cindy`|`10`|
-|`Dumbledore`|`11`|
-|`Egg`|`4`|
-|`Misty`|`13`|
-|`George Michael`|`9`|
-|`Jackson`|`7`|
+|Ringo|4|
+|Cindy|10|
+|Dumbledore|11|
+|Egg|4|
+|Misty|13|
+|George Michael|9|
+|Jackson|7|
 ## 3. The `WHERE` Clause
+- Use `WHERE` to specify a condition
+```mysql
+SELECT *
+FROM cats
+WHERE age = 4;
+```
+
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|Tabby|4|
+|4|Egg|Persian|4|
+
+```mysql
+SELECT *
+FROM cats
+WEHRE name = 'Egg';
+```
+
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|4|Egg|Persian|4|
+## 4. Rapid Fire Exercises
+- Write SQL queries that produces the given outputs:
+  
+|cat_id|
+|---:|
+|1|
+|2|
+|3|
+|4|
+|5|
+|6|
+|7|
+```mysql
+SELECT cat_id
+FROM cats;
+```
+
+|name|breed|
+|:---|:---|
+|Ringo|Tabby|
+|Cindy|Maine Coon|
+|Dumbledore|Main Coon|
+|Egg|Persian|
+|Misty|Tabby|
+|George Michael|Ragdoll|
+|Jackson|Sphynx|
+```mysql
+SELECT name, breed
+FROM cats;
+```
+
+- Just the Tabby cats
+
+|name|age|
+|:---|---:|
+|Ringo|4|
+|Misty|13|
+```mysql
+SELECT name, age
+FROM cats
+WHERE breed = 'Tabby';
+```
+
+- `cat_id` is same as `age`
+
+|cat_id|age|
+|---:|---:|
+|4|4|
+|7|7|
+```mysql
+SELECT cat_id, age
+FROM cats
+WHERE cat_id = age;
+```
+## 5. Aliases
+- Use `AS` to alias a column in your results
+- It doesn't acutally change the name of the column in the table
+```mysql
+SELECT cat_id AS id,
+       name
+FROM cats;
+```
+|id|name|
+|---:|:---|
+|1|Ringo|
+|2|Cindy|
+|3|Dumbledore|
+|4|Egg|
+|5|Misty|
+|6|George Michael|
+|7|Jackson|
+## 6. Update
+- How do we alter existing data?
+- Change tabby cats to shorthair:
+```mysql
+UPDATE cats
+SET breed = 'Shorthair'
+WHERE breed = 'Tabby';
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|Shorthair|4|
+|2|Cindy|Maine Coon|10|
+|3|Dumbledore|Maine Coon|11|
+|4|Egg|Persian|4|
+|5|Misty|Shorthair|13|
+|6|George Michael|Ragdoll|9|
+|7|Jackson|Sphynx|7|
+
+- Change Misty's age to 14
+```mysql
+UPDATE cats
+SET age = 14
+WHERE name = 'Misty';
+```
+|cat_id|name|breed|age|
+|---:|:---|:---|---:|
+|1|Ringo|Shorthair|4|
+|2|Cindy|Maine Coon|10|
+|3|Dumbledore|Maine Coon|11|
+|4|Egg|Persian|4|
+|5|Misty|Shorthair|14|
+|6|George Michael|Ragdoll|9|
+|7|Jackson|Sphynx|7|
+
+- *Rule of Thumb:* Try `SELECT`ing before you `UPDATE`
+## 6. `UPDATE` Exercises
+- Change Jackson's name to Jack
+```mysql
+SELECT *
+FROM cats
+WHERE name='Jackson';
+```
+
+```mysql
+UPDATE cats
+SET name = 'Jack'
+WHERE name = 'Jackson';
+```
+- Change Ringo's breed to British Shorthair
+```mysql
+UPDATE cats
+SET breed = 'British Shorthair'
+WHERE name = 'Ringo';
+```
+- Update both Maine Coons' ages to be 12
+```mysql
+UPDATE cats
+SET age = 12
+WHERE breed = 'Maine Coon';
+```
