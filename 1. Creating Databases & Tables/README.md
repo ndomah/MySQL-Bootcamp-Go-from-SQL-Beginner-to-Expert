@@ -74,9 +74,8 @@
   - The tweet content (max 140 chars)
   - Number of favorites
 
-
-  | Tweets |
-  | --- |
-  | Username VARCHAR(15) |
-  | Content VARCHAR(140) |
-  | Num_Favorites INT |
+| Tweets |
+| --- |
+| Username VARCHAR(15) |
+| Content VARCHAR(140) |
+| Num_Favorites INT |
