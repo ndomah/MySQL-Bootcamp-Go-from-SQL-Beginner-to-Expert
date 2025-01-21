@@ -17,4 +17,10 @@
 - A database is just a bunch of tables.
   - *In a relational database, at least.*
 - Tables hold the data: "a collection of related data held in a structured format within a database"
-- 
+- Example: The Cats Table
+|**Name** |**Breed** |**Age** |
+|---------|----------|--------|
+|Blue |Scottish Fold |1 |
+|Rocket |Persian |3 |
+|Monty |Tabby |10 |
+|Sam |Munchkin |5
