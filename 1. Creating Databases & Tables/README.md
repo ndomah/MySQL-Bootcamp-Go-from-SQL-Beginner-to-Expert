@@ -1,7 +1,5 @@
 # Creating Databases & Tables
 ## Databases
-| Database Server | Databases | 
-|-----------------|-----------|
 |![db-server](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/blob/main/1.%20Creating%20Databases%20%26%20Tables/img/db-server.png) | ![db](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/blob/main/1.%20Creating%20Databases%20%26%20Tables/img/db-tables.png) |
 - A database server can contain multiple databases.
 - Each database can contain multiple tables (in relational database).
