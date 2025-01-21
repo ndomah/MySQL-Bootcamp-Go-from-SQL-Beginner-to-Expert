@@ -68,7 +68,7 @@
     - TIMESTAMP
     - TIME
 - Refer to [MySQL Documentation](https://dev.mysql.com/doc/refman/8.4/en/data-types.html) for more info
-## 2.3 Data Types Challenge
+### 2.3 Data Types Challenge
 - Draw a Tweets Table that contains:
   - A username (max 15 chars)
   - The tweet content (max 140 chars)
@@ -79,3 +79,16 @@
 | Username VARCHAR(15) |
 | Content VARCHAR(140) |
 | Num_Favorites INT |
+### 2.4 Creating Tables
+```
+CREATE TABLE cats (
+  name VARCHAR(50),
+  age INT
+);
+
+CREATE TABLE dogs (
+  name VARCHAR(50),
+  breed VARCHAR(50),
+  age INT
+);
+```
