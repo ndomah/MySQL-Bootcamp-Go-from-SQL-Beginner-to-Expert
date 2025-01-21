@@ -2,7 +2,7 @@
 This repository contains materials for a [comprehensive MySQL bootcamp](https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/?couponCode=ST18MT12125AUS) that starts with database fundamentals and SQL syntax, then moves on to advanced techniques such as complex queries, joins, window functions, and creating views. It’s designed for complete beginners through to intermediate learners who want hands-on experience and real-world exercises using MySQL 8.x.
 
 ## Folder Structure
-1. Creating Databases & Tables
+1. [Creating Databases & Tables](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/1.%20Creating%20Databases%20%26%20Tables)
 2. Inserting Data
 3. CRUD Basics
 4. CRUD Challenge
