@@ -3,8 +3,8 @@
 | Database Server | Databases |
 |-----------------|-----------|
 |![db-server](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/blob/main/1.%20Creating%20Databases%20%26%20Tables/img/db-server.png) | ![db](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/blob/main/1.%20Creating%20Databases%20%26%20Tables/img/db-tables.png) |
-- A database server can contain multiple databases.
-- Each database can contain multiple tables (in relational database).
+- A database server can contain multiple databases
+- Each database can contain multiple tables (in relational database)
 ### 1.1 Showing Databases
 - To list available databases:
 ```mysql
@@ -30,7 +30,7 @@ USE <database-name>:
 ```
 ## 2. Tables
 ### 2.1 Introduction to Tables
-- A database is just a bunch of tables.
+- A database is just a bunch of tables
   - *In a relational database, at least.*
 - Tables hold the data: "a collection of related data held in a structured format within a database"
 - Example: The Cats Table
@@ -44,9 +44,9 @@ USE <database-name>:
 
 - Columns: headers
 - Rows: the actual data/samples
-- Databases are made up of lots of tables.
+- Databases are made up of lots of tables
 ### 2.2 Data Types
-- We have to define the data type for each column in the table for consistency and manipulation.
+- We have to define the data type for each column in the table for consistency and manipulation
 - Cat Table Example:
   - Name - must be text - `VARCHAR(100)` <-- `100`: max length of string
   - Breed - must be txt - `VARCHAR(100)`
