@@ -73,7 +73,8 @@
   - A username (max 15 chars)
   - The tweet content (max 140 chars)
   - Number of favorites
- 
+
+
   | Tweets |
   | --- |
   | Username VARCHAR(15) |
