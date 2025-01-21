@@ -7,25 +7,25 @@
 - Each database can contain multiple tables (in relational database).
 ### 1.1 Showing Databases
 - To list available databases:
-```sql
+```mysql
 SHOW DATABASES;
 ```
 ### 1.2 Creating Databases
 - The general command for creating a datbase:
-```sql
+```mysql
 CREATE DATABASE <database_name>;
 ```
 - A specific example:
-```sql
+```mysql
 CREATE DATABASE soap_store;
 ```
 ### 1.3 Dropping and Using Databases
 - To drop a database:
-```sql
+```mysql
 DROP DATABASE <database-name>;
 ```
 - To use a database:
-```sql
+```mysql
 USE <database-name>:
 ```
 ## 2. Tables
@@ -91,9 +91,9 @@ USE <database-name>:
 
 | Tweets |
 | --- |
-| Username VARCHAR(15) |
-| Content VARCHAR(140) |
-| Num_Favorites INT |
+| Username `VARCHAR(15)` |
+| Content `VARCHAR(140)` |
+| Num_Favorites `INT` |
 ### 2.4 Creating Tables
 ```mysql
 CREATE TABLE cats (
