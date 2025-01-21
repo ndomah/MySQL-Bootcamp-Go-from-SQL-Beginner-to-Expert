@@ -80,7 +80,7 @@
 | Content VARCHAR(140) |
 | Num_Favorites INT |
 ### 2.4 Creating Tables
-```
+```sql
 CREATE TABLE cats (
   name VARCHAR(50),
   age INT
