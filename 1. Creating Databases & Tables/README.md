@@ -148,7 +148,7 @@ DESC pastries;
 DROP TABLE pastries;
 ```
 ### 2.7 Comments
-- Use: --
+- Use: `--`
 ```mysql
 -- To list all tables in DB
 SHOW TABLES;
