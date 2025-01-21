@@ -68,3 +68,14 @@
     - TIMESTAMP
     - TIME
 - Refer to [MySQL Documentation](https://dev.mysql.com/doc/refman/8.4/en/data-types.html) for more info
+## 2.3 Data Types Challenge
+- Draw a Tweets Table that contains:
+  - A username (max 15 chars)
+  - The tweet content (max 140 chars)
+  - Number of favorites
+ 
+  | Tweets |
+  | --- |
+  | Username VARCHAR(15) |
+  | Content VARCHAR(140) |
+  | Num_Favorites INT |
