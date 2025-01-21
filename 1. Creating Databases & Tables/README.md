@@ -6,13 +6,28 @@
 - A database server can contain multiple databases.
 - Each database can contain multiple tables (in relational database).
 ### 1.1 Showing Databases
-- To list available databases: `SHOW DATABASES;`
+- To list available databases:
+```sql
+SHOW DATABASES;
+```
 ### 1.2 Creating Databases
-- The general command for creating a datbase: `CREATE DATABASE <database_name>;`
-- A specific example: `CREATE DATABASE soap_store;`
+- The general command for creating a datbase:
+```sql
+CREATE DATABASE <database_name>;
+```
+- A specific example:
+```sql
+CREATE DATABASE soap_store;
+```
 ### 1.3 Dropping and Using Databases
-- To drop a database: `DROP DATABASE <database-name>;`
-- To use a database: `USE <database-name>:`
+- To drop a database:
+```sql
+DROP DATABASE <database-name>;
+```
+- To use a database:
+```sql
+USE <database-name>:
+```
 ## 2. Tables
 ### 2.1 Introduction to Tables
 - A database is just a bunch of tables.
