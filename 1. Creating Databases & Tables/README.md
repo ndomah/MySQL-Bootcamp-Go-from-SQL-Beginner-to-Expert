@@ -138,12 +138,18 @@ CREATE TABLE pastries (
 ```
 - Inspect table and columns
 ```mysql
-SHOW pastries;
+SHOW TABLES;
 ```
 ```mysql
-SHOW COLUMNS FROM pastries;
+DESC pastries;
 ```
 - Delete table
 ```mysql
 DROP TABLE pastries;
+```
+### 2.7 Comments
+- Use: --
+```mysql
+-- To list all tables in DB
+SHOW TABLES;
 ```
