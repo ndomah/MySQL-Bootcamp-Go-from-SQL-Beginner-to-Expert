@@ -107,3 +107,13 @@ CREATE TABLE dogs (
   age INT
 );
 ```
+### 2.5 How Do We Know It Worked?
+```mysql
+SHOW tables;
+```
+```mysql
+SHOW COLUMNS FROM cats;
+```
+```mysql
+DESC cats;
+```
