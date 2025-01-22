@@ -163,3 +163,222 @@ GROUP BY author;
 | Freida Harris         | 1        |
 | George Saunders       | 1        |
 ## `MIN` and `MAX` with `GROUP BY`
+- Find the earliest release year for each author
+```mysql
+SELECT author_lname,
+       MIN(released_year)
+FROM books
+GROUP BY author_lname;
+```
+| author_lname   |   min_released_year |
+|----------------|---------------------|
+| Carver         |                1981 |
+| Chabon         |                2000 |
+| DeLillo        |                1985 |
+| Eggers         |                2001 |
+| Foster Wallace |                2004 |
+| Gaiman         |                2001 |
+| Harris         |                2001 |
+| Lahiri         |                1996 |
+| Saunders       |                2017 |
+| Steinbeck      |                1945 |
+- Find the earliest and latest release year for each author
+```mysql
+SELECT author_lname,
+       MAX(released_year),
+       MIN(released_year)
+FROM books
+GROUP BY author_lname;
+```
+| author_lname   |   max_released_year |   min_released_year |
+|----------------|---------------------|---------------------|
+| Carver         |                1989 |                1981 |
+| Chabon         |                2000 |                2000 |
+| DeLillo        |                1985 |                1985 |
+| Eggers         |                2013 |                2001 |
+| Foster Wallace |                2005 |                2004 |
+| Gaiman         |                2016 |                2001 |
+| Harris         |                2014 |                2001 |
+| Lahiri         |                2003 |                1996 |
+| Saunders       |                2017 |                2017 |
+| Steinbeck      |                1945 |                1945 |
+- For each author last name, find the number of books they wrote, the earliest and latest release year, and the page count of thier longest book.
+```mysql
+SELECT author_lname, 
+	COUNT(*) as books_written, 
+	MAX(released_year) AS latest_release,
+	MIN(released_year)  AS earliest_release,
+       MAX(pages) AS longest_page_count
+FROM books
+GROUP BY author_lname;
+```
+| author_lname   |   books_written |   latest_release |   earliest_release |   longest_page_count |
+|----------------|-----------------|------------------|--------------------|----------------------|
+| Carver         |               2 |             1989 |               1981 |                  526 |
+| Chabon         |               1 |             2000 |               2000 |                  634 |
+| DeLillo        |               1 |             1985 |               1985 |                  320 |
+| Eggers         |               3 |             2013 |               2001 |                  504 |
+| Foster Wallace |               2 |             2005 |               2004 |                  343 |
+| Gaiman         |               3 |             2016 |               2001 |                  465 |
+| Harris         |               2 |             2014 |               2001 |                  428 |
+| Lahiri         |               2 |             2003 |               1996 |                  291 |
+| Saunders       |               1 |             2017 |               2017 |                  367 |
+| Steinbeck      |               1 |             1945 |               1945 |                  181 |
+- Do the same as before, but account for the fact that some authors have the same last name
+```mysql
+SELECT author_lname, 
+       author_fname,
+	COUNT(*) as books_written, 
+	MAX(released_year) AS latest_release,
+	MIN(released_year)  AS earliest_release
+FROM books
+GROUP BY author_lname, author_fname;
+```
+| author_lname   | author_fname   |   books_written |   latest_release |   earliest_release |
+|----------------|---------------|-----------------|------------------|--------------------|
+| Carver         | Raymond        |               2 |             1989 |               1981 |
+| Chabon         | Michael        |               1 |             2000 |               2000 |
+| DeLillo        | Don            |               1 |             1985 |               1985 |
+| Eggers         | Dave           |               3 |             2013 |               2001 |
+| Foster Wallace | David          |               2 |             2005 |               2004 |
+| Gaiman         | Neil           |               3 |             2016 |               2001 |
+| Harris         | Dan            |               1 |             2014 |               2014 |
+| Harris         | Freida         |               1 |             2001 |               2001 |
+| Lahiri         | Jhumpa         |               2 |             2003 |               1996 |
+| Saunders       | George         |               1 |             2017 |               2017 |
+| Steinbeck      | John           |               1 |             1945 |               1945 |
+## `SUM`
+- Add things together
+- Find the total page count for all books
+```mysql
+SELECT SUM(pages)
+FROM books;
+```
+| SUM(pages) |
+|------------|
+| 6623       |
+- For each author's last name, find how many books they wrote and their total page count
+```mysql
+SELECT author_lname,
+       COUNT(*),
+       SUM(pages)
+FROM books
+GROUP BY author_lname;
+```
+| author_lname   |   books_written |   total_pages |
+|----------------|-----------------|---------------|
+| Carver         |               2 |           702 |
+| Chabon         |               1 |           634 |
+| DeLillo        |               1 |           320 |
+| Eggers         |               3 |          1293 |
+| Foster Wallace |               2 |           672 |
+| Gaiman         |               3 |           977 |
+| Harris         |               2 |           684 |
+| Lahiri         |               2 |           489 |
+| Saunders       |               1 |           367 |
+| Steinbeck      |               1 |           181 |
+## `AVG`
+- Calculate averages
+- Find the average number of pages across all books
+```mysql
+SELECT AVG(pages)
+FROM books;
+```
+| AVG(pages)  |
+|-------------|
+| 348.58      |
+- Find the average publication year
+```mysql
+SELECT AVG(released_year)
+FROM books;
+```
+- Find the averate stock quantity and number of books published per year
+```mysql
+SELECT released_year, 
+      AVG(stock_quantity), 
+      COUNT(*)
+FROM books
+GROUP BY released_year;
+```
+|   released_year |   avg_stock_quantity |   book_count |
+|----------------|----------------------|--------------|
+|            1945 |                95.00 |            1 |
+|            1981 |                23.00 |            1 |
+|            1985 |                49.00 |            1 |
+|            1989 |                12.00 |            1 |
+|            1996 |                97.00 |            1 |
+|            2000 |                68.00 |            1 |
+|            2001 |               134.33 |            3 |
+|            2003 |                66.00 |            2 |
+|            2004 |               172.00 |            1 |
+|            2005 |                92.00 |            1 |
+|            2010 |                55.00 |            1 |
+|            2012 |               154.00 |            1 |
+|            2013 |                26.00 |            1 |
+|            2014 |                29.00 |            1 |
+|            2016 |                43.00 |            1 |
+|            2017 |              1000.00 |            1 |
+## More Aggregate Functions
+- Refer to the [MySQL Aggregate Functions Docs](https://dev.mysql.com/doc/refman/8.4/en/aggregate-functions.html) for more functions
+## Aggregate Functions Exercises
+- Print the number of books in the database
+```mysql
+SELECT COUNT(*)
+FROM books;
+```
+| COUNT(*) |
+|----------|
+| 19       |
+- Print out how many books were released in each year
+```mysql
+SELECT released_year,
+       COUNT(*)
+FROM books
+GROUP BY released_year;
+```
+|   released_year |   book_count |
+|----------------|--------------|
+|            1945 |            1 |
+|            1981 |            1 |
+|            1985 |            1 |
+|            1989 |            1 |
+|            1996 |            1 |
+|            2000 |            1 |
+|            2001 |            3 |
+|            2003 |            2 |
+|            2004 |            1 |
+|            2005 |            1 |
+|            2010 |            1 |
+|            2012 |            1 |
+|            2013 |            1 |
+|            2014 |            1 |
+|            2016 |            1 |
+|            2017 |            1 |
+- Print out the total number of books in stock
+```mysql
+SELECT SUM(stock_quantity)
+FROM books;
+```
+| SUM(stock_quantity) |
+|--------------------|
+| 2450               |
+
+- Find the average release year for each author
+```mysql
+SELECT AVG(released_year)
+FROM books
+GROUP BY author_lname, author_fname;
+```
+
+- Find the full name of the author who wrote the longest book
+```mysql
+
+```
+
+- Create a table with 3 columns
+  - year
+  - number of books
+  - average pages of books per year
+```mysql
+
+```
