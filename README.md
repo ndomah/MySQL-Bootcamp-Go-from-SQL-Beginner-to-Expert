@@ -8,7 +8,7 @@ This repository contains materials for a [comprehensive MySQL bootcamp](https://
 4. [CRUD Challenge](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/4.%20CRUD%20Challenge)
 5. [String Functions](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/5.%20String%20Functions)
 6. [Refining Selections](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/6.%20Refining%20Selections)
-7. Aggregate Functions
+7. [Aggregate Functions](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/7.%20Aggregate%20Functions)
 8. Revisiting Data Types
 9. Comparison & Logical Operators
 10. Constraints & ALTER TABLE
