@@ -369,16 +369,58 @@ SELECT AVG(released_year)
 FROM books
 GROUP BY author_lname, author_fname;
 ```
+| author_lname   | author_fname   |   avg_released_year |
+|----------------|---------------|---------------------|
+| Carver         | Raymond        |             1985.00 |
+| Chabon         | Michael        |             2000.00 |
+| DeLillo        | Don            |             1985.00 |
+| Eggers         | Dave           |             2008.67 |
+| Foster Wallace | David          |             2004.50 |
+| Gaiman         | Neil           |             2006.67 |
+| Harris         | Dan            |             2014.00 |
+| Harris         | Freida         |             2001.00 |
+| Lahiri         | Jhumpa         |             1999.50 |
+| Saunders       | George         |             2017.00 |
+| Steinbeck      | John           |             1945.00 |
 
 - Find the full name of the author who wrote the longest book
 ```mysql
-
+SELECT CONCAT(author_fname, ' ', author_lname) AS author,
+       pages
+FROM books
+WHERE pages = (SELECT MAX(pages)
+	       FROM books);
 ```
-
+| author         |   pages |
+|----------------|---------|
+| Michael Chabon |     634 |
 - Create a table with 3 columns
   - year
   - number of books
   - average pages of books per year
 ```mysql
-
+SELECT released_year AS year,
+       COUNT(*) AS '# books',
+       AVG(pages) AS 'avg pages'
+FROM books
+GROUP BY released_year
+ORDER BY released_year;
 ```
+|   year |   # books |   avg pages |
+|--------|-----------|-------------|
+|   1945 |         1 |      181.00  |
+|   1981 |         1 |      176.00  |
+|   1985 |         1 |      320.00  |
+|   1989 |         1 |      526.00  |
+|   1996 |         1 |      198.00  |
+|   2000 |         1 |      634.00  |
+|   2001 |         3 |      443.33  |
+|   2003 |         2 |      249.50  |
+|   2004 |         1 |      329.00  |
+|   2005 |         1 |      343.00  |
+|   2010 |         1 |      304.00  |
+|   2012 |         1 |      352.00  |
+|   2013 |         1 |      504.00  |
+|   2014 |         1 |      256.00  |
+|   2016 |         1 |      304.00  |
+|   2017 |         1 |      367.00  |
