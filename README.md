@@ -18,4 +18,4 @@ This repository contains my materials for [The Ultimate MySQL Bootcamp by Colt S
 14. [Window Functions](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/14.%20Window%20Functions)
 15. [Instagram Database Clone](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/15.%20Instagram%20Database%20Clone)
 16. [Working with Lots of IG Data](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/16.%20Working%20with%20Lots%20of%20IG%20Data)
-17. Database Triggers
+17. [Database Triggers](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/17.%20Database%20Triggers)
