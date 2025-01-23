@@ -15,7 +15,7 @@ This repository contains materials for a [comprehensive MySQL bootcamp](https://
 11. [One to Many & Joins](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/11.%20One%20to%20Many%20&%20Joins)
 12. [Many to Many](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/12.%20Many%20to%20Many)
 13. [Views, Modes, & More!](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/13.%20Views%2C%20Modes%2C%20%26%20More!)
-14. Window Functions
+14. [Window Functions](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/14.%20Window%20Functions)
 15. Instagram Database Clone
 16. Working with Lots of IG Data
 17. Database Triggers
