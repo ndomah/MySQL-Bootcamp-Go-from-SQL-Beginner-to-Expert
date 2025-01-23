@@ -33,11 +33,11 @@ CREATE TABLE reviews (
 INSERT INTO series (title, released_year, genre) VALUES
     ('Archer', 2009, 'Animation'),
     ('Arrested Development', 2003, 'Comedy'),
-    ("Bob's Burgers", 2011, 'Animation'),
+    ('Bob\'s Burgers', 2011, 'Animation'),
     ('Bojack Horseman', 2014, 'Animation'),
-    ("Breaking Bad", 2008, 'Drama'),
+    ('Breaking Bad', 2008, 'Drama'),
     ('Curb Your Enthusiasm', 2000, 'Comedy'),
-    ("Fargo", 2014, 'Drama'),
+    ('Fargo', 2014, 'Drama'),
     ('Freaks and Geeks', 1999, 'Comedy'),
     ('General Hospital', 1963, 'Drama'),
     ('Halt and Catch Fire', 2014, 'Drama'),
@@ -45,8 +45,7 @@ INSERT INTO series (title, released_year, genre) VALUES
     ('Pushing Daisies', 2007, 'Comedy'),
     ('Seinfeld', 1989, 'Comedy'),
     ('Stranger Things', 2016, 'Drama');
- 
- 
+  
 INSERT INTO reviewers (first_name, last_name) VALUES
     ('Thomas', 'Stoneman'),
     ('Wyatt', 'Skaggs'),
@@ -56,7 +55,6 @@ INSERT INTO reviewers (first_name, last_name) VALUES
     ('Pinkie', 'Petit'),
     ('Marlon', 'Crafford');
     
- 
 INSERT INTO reviews(series_id, reviewer_id, rating) VALUES
     (1,1,8.0),(1,2,7.5),(1,3,8.5),(1,4,7.7),(1,5,8.9),
     (2,1,8.1),(2,4,6.0),(2,3,8.0),(2,6,8.4),(2,5,9.9),
