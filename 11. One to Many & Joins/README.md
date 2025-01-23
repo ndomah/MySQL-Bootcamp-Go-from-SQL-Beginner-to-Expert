@@ -228,9 +228,161 @@ GROUP BY first_name, last_name;
 | Bette      | Davis     | 450.25       |
 ## `RIGHT JOIN`
 ![right joint](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/blob/main/11.%20One%20to%20Many%20%26%20Joins/img_right_join.png)
-
-## On Delete Cascade
-
-
+- A `RIGHT JOIN` (also known as `RIGHT OUTER JOIN`) returns all records from the right table, and the matching records from the left table
+- If there is no match, the result will contain NULL values for the columns from the left table
+```mysql
+SELECT first_name, last_name,
+       order_date, amount
+FROM customers c
+RIGHT JOIN orders o
+  ON c.id = o.customer_id;
+```
+| first_name | last_name | order_date | amount  |
+|------------|-----------|------------|---------|
+| Boy        | George    | 2016-02-10  | 99.99   |
+| Boy        | George    | 2017-11-11  | 35.50   |
+| George     | Michael   | 2014-12-12  | 800.67  |
+| George     | Michael   | 2015-01-03  | 12.50   |
+| Bette      | Davis     | 1999-04-11  | 450.25  |
+## `ON DELETE CASCADE`
+- The `ON DELETE CASCADE` option is used in **foreign key constraints** to automatically remove related rows in child tables when a corresponding row in the parent table is deleted
+```mysql
+CREATE TABLE customers (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  email VARCHAR(50)
+);
+ 
+CREATE TABLE orders (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  order_date DATE,
+  amount DECIMAL(8 , 2 ),
+  customer_id INT,
+  FOREIGN KEY (customer_id)
+    REFERENCES customers (id)
+    ON DELETE CASCADE
+);
+```
 ## Joins Exercise
+- Write this schema:
+![schema](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/blob/main/11.%20One%20to%20Many%20%26%20Joins/image.png)
+```mysql
+CREATE TABLE students (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(50)
+);
 
+CREATE TABLE papers(
+  title VARCHAR(50),
+  grade INT,
+  student_id INT,
+  FOREIGN KEY (student_id)
+    REFERENCES students (id)
+);
+```
+- Insert the following data into your tables
+```mysql
+INSERT INTO students (first_name)
+VALUES ('Caleb'), ('Samantha'), ('Raj'), ('Carlos'), ('Lisa');
+ 
+INSERT INTO papers (student_id, title, grade )
+VALUES (1, 'My First Book Report', 60),
+       (1, 'My Second Book Report', 75),
+       (2, 'Russian Lit Through The Ages', 94),
+       (2, 'De Montaigne and The Art of The Essay', 98),
+       (4, 'Borges and Magical Realism', 89);
+```
+- Print this
+
+| first_name | title                                 | grade |
+|------------|---------------------------------------|-------|
+| Samantha   | De Montaigne and The Art of The Essay | 98    |
+| Samantha   | Russian Lit Through The Ages         | 94    |
+| Carlos     | Borges and Magical Realism           | 89    |
+| Caleb      | My Second Book Report                | 75    |
+| Caleb      | My First Book Report                 | 60    |
+```mysql
+SELECT first_name, title, grade
+FROM papers p
+JOIN students s
+  ON p.student_id = s.id
+ORDER BY grade DESC;
+```
+- Print this
+
+| first_name | title                                 | grade |
+|------------|---------------------------------------|-------|
+| Caleb      | My First Book Report                  | 60    |
+| Caleb      | My Second Book Report                 | 75    |
+| Samantha   | Russian Lit Through The Ages         | 94    |
+| Samantha   | De Montaigne and The Art of The Essay | 98    |
+| Raj        | NULL                                  | NULL  |
+| Carlos     | Borges and Magical Realism           | 89    |
+| Lisa       | NULL                                  | NULL  |
+```mysql
+SELECT first_name, title, grade
+FROM students
+LEFT JOIN papers p
+  ON p.student_id = s.id;
+```
+- Print this
+
+| first_name | title                                 | grade |
+|------------|---------------------------------------|-------|
+| Caleb      | My First Book Report                  | 60    |
+| Caleb      | My Second Book Report                 | 75    |
+| Samantha   | Russian Lit Through The Ages         | 94    |
+| Samantha   | De Montaigne and The Art of The Essay | 98    |
+| Raj        | MISSING                               | 0     |
+| Carlos     | Borges and Magical Realism           | 89    |
+| Lisa       | MISSING                               | 0     |
+```mysql
+SELECT first_name,
+       IFNULL(title, 'MISSING'),
+       IFNULL(grade, 0)
+FROM students s
+LEFT JOIN papers p
+  ON p.student_id = s.id;
+```
+- Print this
+
+| first_name | average  |
+|------------|----------|
+| Samantha   | 96.0000  |
+| Carlos     | 89.0000  |
+| Caleb      | 67.5000  |
+| Raj        | 0        |
+| Lisa       | 0        |
+```mysql
+SELECT first_name,
+       IFNULL(AVG(grade), 0) AS average
+FROM students s
+LEFT JOIN papers p
+  ON s.id = p.student_id
+GROUP BY first_name
+ORDER BY average DESC;
+```
+- Print this
+
+| first_name | average  | passing_status |
+|------------|----------|----------------|
+| Samantha   | 96.0000  | PASSING         |
+| Carlos     | 89.0000  | PASSING         |
+| Caleb      | 67.5000  | FAILING         |
+| Raj        | 0        | FAILING         |
+| Lisa       | 0        | FAILING         |
+
+```mysql
+SELECT first_name,
+       IFNULL(AVG(grade), 0) AS average,
+  CASE
+    WHEN IFNULL(AVG(grade), 0) >= 75 THEN 'passing'
+    ELSE 'failing'
+  END AS passing_status
+FROM students s
+LEFT JOIN papers p
+  ON s.id = p.student_id
+GROUP BY first_name
+ORDER BY average DESC;
+```
