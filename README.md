@@ -11,7 +11,7 @@ This repository contains materials for a [comprehensive MySQL bootcamp](https://
 7. [Aggregate Functions](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/7.%20Aggregate%20Functions)
 8. [Revisiting Data Types](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/8.%20Revisiting%20Data%20Types)
 9. [Comparison & Logical Operators](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/9.%20Comparison%20%26%20Logical%20Operators)
-10. Constraints & ALTER TABLE
+10. [Constraints & ALTER TABLE](https://github.com/ndomah/MySQL-Bootcamp-Go-from-SQL-Beginner-to-Expert/tree/main/10.%20Constraints%20&%20ALTER%20TABLE)
 11. One to Many & Joins
 12. Many to Many
 13. Views, Modes, & More!
